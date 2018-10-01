@@ -44,8 +44,17 @@ function handleInput() {
 }
 
 function collisionCheck() {
-    if(y + dy < ballRadius || y + dy > canvas.height - ballRadius) {
+    if(y + dy < ballRadius) {
         dy = -dy;
+    }
+    else if(y + dy > canvas.height - ballRadius) {
+        if(x > paddleX || x < paddleX + paddleWidth) {
+            dy = -dy;
+        }
+        else{
+            alert("Game Over!");
+            document.location.reload();
+        }
     }
     if(x + dx < ballRadius || x + dx > canvas.width - ballRadius) {
         dx = -dx;
