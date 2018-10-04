@@ -13,6 +13,15 @@ var paddleY = canvas.height - paddleHeight;
 var rightPressed = false;
 var leftPressed = false;
 
+//Brick Vars
+var brickRowCount = 3;
+var brickColumnCount = 5;
+var brickWidth = 75;
+var brickHeight = 20;
+var brickPadding = 10;
+var brickOffsetTop = 30;
+var brickOffsetLeft = 30;
+
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
