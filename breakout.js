@@ -78,6 +78,20 @@ function drawBricks() {
     }
 }
 
+function brickCheck() {
+    for(var c=0; c<brickColumnCount; c++) {
+        for(var r=0; r<brickRowCount; r++) {
+            var b = bricks[c][r];
+            if(b.status == 1) {
+                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                    dy = -dy;
+                    b.status = 0;
+                }
+            }
+        }
+    }
+}
+
 function collisionCheck() {
     if(y + dy < ballRadius) {
         dy = -dy;
@@ -119,6 +133,7 @@ function draw() {
     x += dx;
     y += dy;
     collisionCheck();
+    brickCheck();
     handleInput();
 }
 
